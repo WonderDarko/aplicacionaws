@@ -1,0 +1,14 @@
+<p>get-service works!</p>
+<div class=container>
+    <div class="row">
+        <div class="col-sm-6 col-md-4" *ngFor="let quote of quotes">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{quote.author}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{quote.id}}</h6>
+                    <p class="card-text">{{quote.quote}}</p>
+                    <button type="button" class="btn btn-primary d-block mx-auto" [routerLink]="['/quotedetail', quote.id]">Primary</button>
+                </div>
+            </div>
+        </div>
+    </div>
