@@ -1,0 +1,85 @@
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Registro</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">Tabla</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h1>Formulario de registro</h1>
+            <form #clientForm="ngForm">
+                <div class="form-group">
+                    <label for="address">Direccion</label>
+                    <input type="text" class="form-control" id="address" required [(ngModel)]="client.address"
+                        name="address" #address="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="age">Edad</label>
+                    <input type="number" class="form-control" id="age" required [(ngModel)]="client.age" name="age"
+                        #age="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="company">Compañia</label>
+                    <input type="text" class="form-control" id="company" required [(ngModel)]="client.company"
+                        name="company" #company="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="text" class="form-control" id="email" required [(ngModel)]="client.email" name="email"
+                        #email="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Genero</label>
+                    <input type="text" class="form-control" id="gender" required [(ngModel)]="client.gender"
+                        name="gender" #gender="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name"
+                        #name="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefono</label>
+                    <input type="number" class="form-control" id="phone" required [(ngModel)]="client.phone"
+                        name="phone" #phone="ngModel">
+                </div>
+                <button class="btn btn-success" (click)="createClient();">Insert Client</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Estatus</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Compañia</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Direccion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients">
+                        <th scope="row">{{client.id}}</th>
+                        <td>{{client.isActivated}}</td>
+                        <td>{{client.name}}</td>
+                        <td>{{client.age}}</td>
+                        <td>{{client.gender}}</td>
+                        <td>{{client.company}}</td>
+                        <td>{{client.email}}</td>
+                        <td>{{client.phone}}</td>
+                        <td>{{client.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

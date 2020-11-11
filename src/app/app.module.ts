@@ -16,6 +16,21 @@ import { FormsModule } from '@angular/forms';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { WeatherWithFormsComponent } from './weather-with-forms/weather-with-forms.component';
 import { LeafletMapsComponent } from './leaflet-maps/leaflet-maps.component';
+import { WeatherForecastByLtLngComponent } from './weather-forecast-by-lt-lng/weather-forecast-by-lt-lng.component';
+import { FirebaseCRUDComponent } from './firebase-crud/firebase-crud.component';
+import { AngularFireModule} from '@angular/fire'; 
+import { AngularFireDatabaseModule} from '@angular/fire/database'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBgLnDGqcsVoBGxxXc7baKvw5dBWwfBq3Q",
+  authDomain: "proyectoawos-2020-e5276.firebaseapp.com",
+  databaseURL: "https://proyectoawos-2020-e5276.firebaseio.com",
+  projectId: "proyectoawos-2020-e5276",
+  storageBucket: "proyectoawos-2020-e5276.appspot.com",
+  messagingSenderId: "262369369992",
+  appId: "1:262369369992:web:cb6e6c412eca2fd706a43d",
+  measurementId: "G-1Y5132YEL8"
+};
 
 @NgModule({
   declarations: [
@@ -29,7 +44,9 @@ import { LeafletMapsComponent } from './leaflet-maps/leaflet-maps.component';
     WeatherForecastComponent,
     HeroFormComponent,
     WeatherWithFormsComponent,
-    LeafletMapsComponent
+    LeafletMapsComponent,
+    WeatherForecastByLtLngComponent,
+    FirebaseCRUDComponent
     
   ],
   imports: [
@@ -37,7 +54,9 @@ import { LeafletMapsComponent } from './leaflet-maps/leaflet-maps.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
